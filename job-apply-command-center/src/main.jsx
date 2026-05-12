@@ -8,14 +8,9 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 const localKey = 'job-command-center-local';
-
-const seedJobs = [
-  { company:'NVIDIA', title:'Physical Design Engineer — New College Grad', location:'Santa Clara, CA', url:'https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite', focus:'Physical Design', priority:'High', status:'Not Applied', notes:'Strong match: RTL-to-GDSII, CTS, STA, physical implementation.' },
-  { company:'AMD', title:'Design Verification Engineer', location:'Austin, TX', url:'https://careers.amd.com/', focus:'Verification', priority:'High', status:'Not Applied', notes:'Mention SystemVerilog, UVM, debugging, and validation projects.' },
-  { company:'Cadence', title:'Applications Engineer — Digital Implementation', location:'San Jose, CA', url:'https://cadence.wd1.myworkdayjobs.com/External_Careers', focus:'EDA', priority:'Medium', status:'Saved', notes:'Great EDA tools fit. Mention Innovus, Virtuoso, Tcl.' },
-  { company:'NXP', title:'Entry Level Design, Verification & Validation', location:'Austin, TX', url:'https://nxp.wd3.myworkdayjobs.com/careers', focus:'RTL Design', priority:'High', status:'Not Applied', notes:'New grad friendly. Use project achievement bullets.' }
-].map(j => ({ id: crypto.randomUUID(), applied_date:'', followup_date:'', referral_name:'', referral_contact:'', interview_date:'', interview_notes:'', resume_url:'', created_at:new Date().toISOString(), ...j }));
-
+const seedJobs = [];
+  
+  
 const statuses = ['Not Applied','Saved','Applied','Interview','Offer','Rejected'];
 const focuses = ['All','Physical Design','RTL Design','Verification','EDA','Software','Other'];
 const priorities = ['All','High','Medium','Low'];
